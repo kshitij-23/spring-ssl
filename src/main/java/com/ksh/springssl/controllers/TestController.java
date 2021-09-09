@@ -1,16 +1,19 @@
 package com.ksh.springssl.controllers;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.ksh.springssl.models.Person;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/ssl")
 public class TestController {
 
-    @GetMapping("/test")
+    @GetMapping("/test-get")
     public String test() {
         return "SSL test successful...";
     }
 
+    @PostMapping("/test-post")
+    public Person getPerson(@RequestBody Person person) {
+        return person;
+    }
 }
